@@ -1,17 +1,14 @@
-#include "simplegraphics/generators/svg.hpp"
-#include "simplegraphics/picture.hpp"
+#include "simplegraphics/simplegraphics.hpp"
 
 using namespace SimpleGraphics;
-using namespace SimpleGraphics::Generators;
-using namespace SimpleGraphics::Shapes;
+using namespace SimpleGraphics::Drawables;
 
 int main()
 {
-    Picture p;
-    p << Rectangle(0, 0, 50, 50);
-    p << Rectangle(123, 60, 400, 500);
-
-    SVG::save("test123.svg", p);
-
+    Complex img(50, 50);
+    img.add(Rectangle(0, 0, 100, 50));
+    img.add(Rectangle(50, 50, 50, 50));
+    img.add(img);
+    img.saveAsSVG("test.svg");
     return 0;
 }
