@@ -12,8 +12,8 @@ namespace Drawables {
 class Complex : public Drawable
 {
 public:
-    explicit Complex(double x, double y)
-        : Drawable(x, y)
+    explicit Complex(double x, double y, Style style = Style())
+        : Drawable(x, y, style)
     {
     }
 

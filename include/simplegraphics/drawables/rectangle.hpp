@@ -1,7 +1,6 @@
 #pragma once
 
 #include "simplegraphics/drawables/drawable.hpp"
-#include "simplegraphics/drawables/style.hpp"
 
 namespace SimpleGraphics {
 namespace Drawables {
@@ -11,13 +10,11 @@ class Rectangle : public Drawable
 public:
     double width;
     double height;
-    Style style;
 
     explicit Rectangle(double x, double y, double width, double height, Style style = Style())
-        : Drawable(x, y)
+        : Drawable(x, y, style)
         , width(width)
         , height(height)
-        , style(style)
     {
     }
 

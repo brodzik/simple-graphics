@@ -4,6 +4,7 @@
 #include <string>
 
 #include "fmt/format.h"
+#include "simplegraphics/drawables/style.hpp"
 
 namespace SimpleGraphics {
 namespace Drawables {
@@ -13,10 +14,12 @@ class Drawable
 public:
     double x;
     double y;
+    Style style;
 
-    explicit Drawable(double x, double y)
+    explicit Drawable(double x, double y, Style style)
         : x(x)
         , y(y)
+        , style(style)
     {
     }
 
