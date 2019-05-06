@@ -1,9 +1,9 @@
 #pragma once
 
-#include "simplegraphics/drawables/circle.hpp"
-#include "simplegraphics/drawables/complex.hpp"
-#include "simplegraphics/drawables/ellipse.hpp"
-#include "simplegraphics/drawables/line.hpp"
-#include "simplegraphics/drawables/polygon.hpp"
-#include "simplegraphics/drawables/polyline.hpp"
-#include "simplegraphics/drawables/rectangle.hpp"
+#include "simplegraphics/shapes/circle.hpp"
+#include "simplegraphics/shapes/complex.hpp"
+#include "simplegraphics/shapes/ellipse.hpp"
+#include "simplegraphics/shapes/line.hpp"
+#include "simplegraphics/shapes/polygon.hpp"
+#include "simplegraphics/shapes/polyline.hpp"
+#include "simplegraphics/shapes/rectangle.hpp"

@@ -4,22 +4,19 @@
 #include <string>
 
 #include "fmt/format.h"
-#include "simplegraphics/drawables/style.hpp"
 
 namespace SimpleGraphics {
-namespace Drawables {
+namespace Shapes {
 
 class Drawable
 {
 public:
     double x;
     double y;
-    Style style;
 
-    explicit Drawable(double x, double y, Style style)
+    explicit Drawable(double x, double y)
         : x(x)
         , y(y)
-        , style(style)
     {
     }
 
@@ -27,9 +24,9 @@ public:
     {
     }
 
-    virtual std::string toSVG() = 0;
+    virtual std::string to_svg() = 0;
 
-    void saveAsSVG(const std::string &filename)
+    void save_to_file(const std::string &filename)
     {
         std::ofstream file(filename);
 
@@ -37,7 +34,7 @@ public:
         {
             file << "<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\">";
 
-            file << toSVG();
+            file << to_svg();
 
             file << "</svg>";
         }
@@ -48,5 +45,5 @@ public:
     }
 };
 
-}  // namespace Drawables
+}  // namespace Shapes
 }  // namespace SimpleGraphics

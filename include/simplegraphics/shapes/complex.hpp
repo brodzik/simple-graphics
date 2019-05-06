@@ -4,32 +4,32 @@
 #include <utility>
 #include <vector>
 
-#include "simplegraphics/drawables/drawable.hpp"
+#include "simplegraphics/shapes/drawable.hpp"
 
 namespace SimpleGraphics {
-namespace Drawables {
+namespace Shapes {
 
 class Complex : public Drawable
 {
 public:
-    explicit Complex(double x, double y, Style style = Style())
-        : Drawable(x, y, style)
+    explicit Complex(double x, double y)
+        : Drawable(x, y)
     {
     }
 
     template <class T>
     void add(const T &obj)
     {
-        drawables.push_back(std::make_shared<T>(obj));
+        objects.push_back(std::make_shared<T>(obj));
     }
 
-    std::string toSVG()
+    std::string to_svg()
     {
         std::string s = fmt::format("<svg x=\"{0}\" y=\"{1}\">", x, y);
 
-        for (auto a : drawables)
+        for (auto a : objects)
         {
-            s += a->toSVG();
+            s += a->to_svg();
         }
 
         s += "</svg>";
@@ -38,8 +38,8 @@ public:
     }
 
 private:
-    std::vector<std::shared_ptr<Drawable>> drawables;
+    std::vector<std::shared_ptr<Drawable>> objects;
 };
 
-}  // namespace Drawables
+}  // namespace Shapes
 }  // namespace SimpleGraphics
