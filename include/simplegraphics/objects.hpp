@@ -61,13 +61,18 @@ public:
 class Complex : public Object
 {
 public:
-    Double x, y, width, height;
-
     explicit Complex(const Double &x, const Double &y)
         : Object("svg")
     {
         set_attribute(AttributeDouble("x", x));
         set_attribute(AttributeDouble("y", y));
+    }
+
+    explicit Complex(const Double &x, const Double &y, const Double &width, const Double &height)
+        : Complex(x, y)
+    {
+        set_attribute(AttributeDouble("width", width));
+        set_attribute(AttributeDouble("height", height));
     }
 
     template <class T>
