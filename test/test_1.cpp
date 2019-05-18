@@ -15,7 +15,7 @@ TEST_CASE("Basic shapes")
     ellipse.save_to_file("test_1_ellipse.svg");
     CHECK(ellipse.to_svg() == "<ellipse cx=\"50\" cy=\"100\" rx=\"50\" ry=\"100\" ></ellipse>");
 
-    SimpleGraphics::Line line({50}, {50}, {100}, {200});
+    SimpleGraphics::Line line({50}, {100}, {50}, {200});
     line.save_to_file("test_1_line.svg");
     CHECK(line.to_svg() == "<line stroke=\"#000000\" x1=\"50\" x2=\"50\" y1=\"100\" y2=\"200\" ></line>");
 }

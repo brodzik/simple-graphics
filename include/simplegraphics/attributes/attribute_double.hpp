@@ -1,27 +1,9 @@
 #pragma once
 
-#include <string>
-
 #include "fmt/format.h"
+#include "simplegraphics/attributes/attribute.hpp"
 
 namespace SimpleGraphics {
-
-class Attribute
-{
-public:
-    const std::string name;
-
-    explicit Attribute(const std::string &name)
-        : name(name)
-    {
-    }
-
-    virtual ~Attribute()
-    {
-    }
-
-    virtual std::string to_string() = 0;
-};
 
 struct Double
 {
@@ -57,23 +39,6 @@ public:
         {
             return fmt::format("{0}=\"{1}\"", name, value);
         }
-    }
-};
-
-class AttributeString : public Attribute
-{
-public:
-    std::string value;
-
-    explicit AttributeString(const std::string &name, const std::string &value)
-        : Attribute(name)
-        , value(value)
-    {
-    }
-
-    std::string to_string()
-    {
-        return fmt::format("{0}=\"{1}\"", name, value);
     }
 };
 

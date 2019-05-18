@@ -5,7 +5,8 @@
 #include <memory>
 #include <utility>
 
-#include "simplegraphics/attribute.hpp"
+#include "simplegraphics/attributes/attribute_double.hpp"
+#include "simplegraphics/attributes/attribute_string.hpp"
 
 namespace SimpleGraphics {
 
