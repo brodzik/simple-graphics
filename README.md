@@ -3,9 +3,10 @@
 
 Scalable Vector Graphics (SVG) file generator.
 
-## Example
+## Example usage
 ```cpp
 #include "simplegraphics/simplegraphics.hpp"
+
 namespace SG = SimpleGraphics;
 
 int main()
@@ -21,6 +22,9 @@ int main()
     return 0;
 }
 ```
+
+## Example output
+![Example](example.svg)
 
 ## Testing
 ```bash
