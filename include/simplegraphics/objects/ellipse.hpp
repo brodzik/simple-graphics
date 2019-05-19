@@ -7,6 +7,18 @@ namespace SimpleGraphics {
 class Ellipse : public Object
 {
 public:
+    explicit Ellipse(const Double &cx, const Double &cy, const Double &rx, const Double &ry, const std::string &fill, const std::string &stroke)
+        : Ellipse(cx, cy, rx, ry, fill)
+    {
+        set_attribute(AttributeString("stroke", stroke));
+    }
+
+    explicit Ellipse(const Double &cx, const Double &cy, const Double &rx, const Double &ry, const std::string &fill)
+        : Ellipse(cx, cy, rx, ry)
+    {
+        set_attribute(AttributeString("fill", fill));
+    }
+
     explicit Ellipse(const Double &cx, const Double &cy, const Double &rx, const Double &ry)
         : Object("ellipse")
     {

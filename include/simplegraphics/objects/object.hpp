@@ -43,7 +43,7 @@ public:
         return fmt::format("<{0} {1}>{2}</{0}>", name, s, get_inner_svg());
     }
 
-    void save_to_file(const std::string &filename)
+    void save(const std::string &filename)
     {
         std::ofstream file(filename);
 

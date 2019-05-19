@@ -7,6 +7,18 @@ namespace SimpleGraphics {
 class Circle : public Object
 {
 public:
+    explicit Circle(const Double &cx, const Double &cy, const Double &r, const std::string &fill, const std::string &stroke)
+        : Circle(cx, cy, r, fill)
+    {
+        set_attribute(AttributeString("stroke", stroke));
+    }
+
+    explicit Circle(const Double &cx, const Double &cy, const Double &r, const std::string &fill)
+        : Circle(cx, cy, r)
+    {
+        set_attribute(AttributeString("fill", fill));
+    }
+
     explicit Circle(const Double &cx, const Double &cy, const Double &r)
         : Object("circle")
     {

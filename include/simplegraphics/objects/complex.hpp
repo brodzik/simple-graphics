@@ -9,8 +9,13 @@ namespace SimpleGraphics {
 class Complex : public Object
 {
 public:
-    explicit Complex(const Double &x, const Double &y)
+    explicit Complex()
         : Object("svg")
+    {
+    }
+
+    explicit Complex(const Double &x, const Double &y)
+        : Complex()
     {
         set_attribute(AttributeDouble("x", x));
         set_attribute(AttributeDouble("y", y));

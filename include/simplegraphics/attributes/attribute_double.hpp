@@ -9,6 +9,17 @@ struct Double
 {
     double value = 0;
     bool relative = false;
+
+    Double(double value)
+        : value(value)
+    {
+    }
+
+    Double(double value, bool relative)
+        : value(value)
+        , relative(relative)
+    {
+    }
 };
 
 class AttributeDouble : public Attribute
