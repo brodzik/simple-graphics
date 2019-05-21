@@ -1,0 +1,42 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[T1]{fontenc}
+
+\title{[PROI] Projekt 4.}
+\author{Adrian Brodzik}
+
+\begin{document}
+
+\maketitle
+
+\section*{Zadanie}
+Zaprojektować prosty edytor graficzny, w którym można rysować obiekty proste (np. kółko) oraz złożone (zbiór obiektów). Obrazy generować w formacie \textit{Scalable Vector Graphics (SVG)}. Zachować odpowiedni stopień abstrakcji i możliwość rozwoju aplikacji, w tym dodawanie kolejnych formatów plików.
+
+\section*{Rozwiązanie}
+Niech \texttt{Attribute} będzie prostą strukturą danych postaci \texttt{(klucz, wartość)}. Niech \texttt{Object} będzie zbiorem danych typu \texttt{Attribute}. Wtedy \texttt{Object} może reprezentować figurę o pewnych cechach typu \texttt{Attribute}. Taka separacja klas pozwala figurom posiadać dowolną liczbę cech oraz ułatwia generowanie plików zawierających te figury.
+\\\\
+Niech \texttt{Double} będzie prostą strukturą danych zawierającą liczbę rzeczywistą oraz wartość logiczną. Niech \texttt{AttributeDouble} dziedziczy \texttt{Attribute} i przechowywał wartości typu \texttt{Double}. Wtedy możemy przechowywać cechy będącymi współrzędnymi absolutnymi lub relatywnymi (tzn. skalowalnymi).
+\\\\
+Niech \texttt{Complex} dziedziczy \texttt{Object} i będzie zbiorem danych typu \texttt{Object}. Wtedy \texttt{Complex} pozwala tworzyć złożone figury i obrazki.
+
+\pagebreak
+
+\section*{Hierarchia klas}
+\begin{enumerate}
+    \item \texttt{Attribute} - klasa bazowa atrybutów
+    \begin{enumerate}
+        \item \texttt{AttributeDouble} - atrybut liczby rzeczywistej (absolutnej/relatywnej)
+        \item \texttt{AttributeString} - atrybut tablicy znaków
+    \end{enumerate}
+    \item \texttt{Double} - liczba rzeczywista 
+    \item \texttt{Point} - punkt (współrzędne x, y)
+    \item \texttt{Object} - zbiór atrybutów
+    \begin{enumerate}
+        \item \texttt{Circle} - kółko
+        \item \texttt{Complex} - zbiór obiektów
+        \item \texttt{Ellipse} - elipsa
+        \item \texttt{Line} - linia
+        \item \texttt{Rectangle} - prostokąt
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}
