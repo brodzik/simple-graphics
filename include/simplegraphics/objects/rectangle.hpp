@@ -44,6 +44,36 @@ public:
         : Rectangle(x, y, length, length)
     {
     }
+
+    explicit Rectangle(const Point &p, const Double &width, const Double &height, const std::string &fill, const std::string &stroke)
+        : Rectangle(p.x, p.y, width, height, fill, stroke)
+    {
+    }
+
+    explicit Rectangle(const Point &p, const Double &width, const Double &height, const std::string &fill)
+        : Rectangle(p.x, p.y, width, height, fill)
+    {
+    }
+
+    explicit Rectangle(const Point &p, const Double &width, const Double &height)
+        : Rectangle(p.x, p.y, width, height)
+    {
+    }
+
+    explicit Rectangle(const Point &p, const Double &length, const std::string &fill, const std::string &stroke)
+        : Rectangle(p.x, p.y, length, fill, stroke)
+    {
+    }
+
+    explicit Rectangle(const Point &p, const Double &length, const std::string &fill)
+        : Rectangle(p.x, p.y, length, fill)
+    {
+    }
+
+    explicit Rectangle(const Point &p, const Double &length)
+        : Rectangle(p.x, p.y, length, length)
+    {
+    }
 };
 
 }  // namespace SimpleGraphics

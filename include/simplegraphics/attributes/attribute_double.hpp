@@ -22,6 +22,11 @@ struct Double
     }
 };
 
+struct Point
+{
+    Double x, y;
+};
+
 class AttributeDouble : public Attribute
 {
 public:

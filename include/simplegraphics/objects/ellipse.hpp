@@ -27,6 +27,21 @@ public:
         set_attribute(AttributeDouble("rx", rx));
         set_attribute(AttributeDouble("ry", ry));
     }
+
+    explicit Ellipse(const Point &p, const Double &rx, const Double &ry, const std::string &fill, const std::string &stroke)
+        : Ellipse(p.x, p.y, rx, ry, fill, stroke)
+    {
+    }
+
+    explicit Ellipse(const Point &p, const Double &rx, const Double &ry, const std::string &fill)
+        : Ellipse(p.x, p.y, rx, ry, fill)
+    {
+    }
+
+    explicit Ellipse(const Point &p, const Double &rx, const Double &ry)
+        : Ellipse(p.x, p.y, rx, ry)
+    {
+    }
 };
 
 }  // namespace SimpleGraphics

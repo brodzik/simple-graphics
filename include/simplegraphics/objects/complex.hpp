@@ -28,6 +28,16 @@ public:
         set_attribute(AttributeDouble("height", height));
     }
 
+    explicit Complex(const Point &p)
+        : Complex(p.x, p.y)
+    {
+    }
+
+    explicit Complex(const Point &p, const Double &width, const Double &height)
+        : Complex(p.x, p.y, width, height)
+    {
+    }
+
     template <class T>
     void add(const T &obj)
     {

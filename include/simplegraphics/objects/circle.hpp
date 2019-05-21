@@ -26,6 +26,21 @@ public:
         set_attribute(AttributeDouble("cy", cy));
         set_attribute(AttributeDouble("r", r));
     }
+
+    explicit Circle(const Point &p, const Double &r, const std::string &fill, const std::string &stroke)
+        : Circle(p.x, p.y, r, fill, stroke)
+    {
+    }
+
+    explicit Circle(const Point &p, const Double &r, const std::string &fill)
+        : Circle(p.x, p.y, r, fill)
+    {
+    }
+
+    explicit Circle(const Point &p, const Double &r)
+        : Circle(p.x, p.y, r)
+    {
+    }
 };
 
 }  // namespace SimpleGraphics
