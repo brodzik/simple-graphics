@@ -1,5 +1,14 @@
 \documentclass[a4paper, 12pt]{article}
+\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{listings}
+\usetikzlibrary{shapes, arrows, positioning, fit, backgrounds}
+
+\tikzstyle{rect} = [draw, rectangle, rounded corners, fill=white, minimum width=1.75cm, minimum height=0.7cm]
+\tikzstyle{line} = [draw, -latex]
 
 \title{[PROI] Projekt 4.}
 \author{Adrian Brodzik}
@@ -18,25 +27,84 @@ Niech \texttt{Double} będzie prostą strukturą danych zawierającą liczbę rz
 \\\\
 Niech \texttt{Complex} dziedziczy \texttt{Object} i będzie zbiorem danych typu \texttt{Object}. Wtedy \texttt{Complex} pozwala tworzyć złożone figury i obrazki.
 
-\pagebreak
+\section*{Testowanie}
+Testy przeprowadzono za pomocą biblioteki \texttt{doctest} i serwisu ciągłej integracji \texttt{Travis CI}. Testowano konstruowanie figur prostych i złożonych, dodawanie i modyfikacja atrybutów oraz generowanie obiektów o relatywnych wymiarach i współrzędnych.
+
+\section*{Przykład użycia}
+\begin{lstlisting}[language=C++]
+#include "simplegraphics/simplegraphics.hpp"
+
+namespace SG = SimpleGraphics;
+
+int main()
+{
+    SG::Complex img;
+
+    img.add(SG::Rectangle(0, 0, 100, 50, "#FF0000"));
+    img.add(SG::Rectangle(50, 50, 50, "#00FF00"));
+    img.add(SG::Circle(25, 75, 25, "#0000FF"));
+
+    img.save("test.svg");
+
+    return 0;
+}
+\end{lstlisting}
 
 \section*{Hierarchia klas}
-\begin{enumerate}
-    \item \texttt{Attribute} - klasa bazowa atrybutów
-    \begin{enumerate}
-        \item \texttt{AttributeDouble} - atrybut liczby rzeczywistej (absolutnej/relatywnej)
-        \item \texttt{AttributeString} - atrybut tablicy znaków
-    \end{enumerate}
-    \item \texttt{Double} - liczba rzeczywista 
-    \item \texttt{Point} - punkt (współrzędne x, y)
-    \item \texttt{Object} - zbiór atrybutów
-    \begin{enumerate}
-        \item \texttt{Circle} - kółko
-        \item \texttt{Complex} - zbiór obiektów
-        \item \texttt{Ellipse} - elipsa
-        \item \texttt{Line} - linia
-        \item \texttt{Rectangle} - prostokąt
-    \end{enumerate}
-\end{enumerate}
+\subsection*{Object}
+Figury proste i złożone.
+\begin{center}
+    \begin{tikzpicture}
+    \node [rect] (object) {Object};
+    
+    \coordinate [below=0.5cm of object] (c1);
+    
+    \node [rect, below=0.5cm of c1] (ellipse) {Ellipse};
+    \node [rect, left=0.5cm of ellipse] (complex) {Complex};
+    \node [rect, left=0.5cm of complex] (circle) {Circle};
+    \node [rect, right=0.5cm of ellipse] (line) {Line};
+    \node [rect, right=0.5cm of line] (rect) {Rectangle};
+    
+    \path [line] (object) -- (c1) -- (ellipse);
+    \path [line] (object) -- (c1) -| (complex);
+    \path [line] (object) -- (c1) -| (circle);
+    \path [line] (object) -- (c1) -| (line);
+    \path [line] (object) -- (c1) -| (rect);
+    \end{tikzpicture}
+\end{center}
+
+\subsection*{Attribute}
+Cechy figur prostych i złożonych.
+\begin{center}
+    \begin{tikzpicture}
+    \node [rect] (a1) {Attribute};
+    
+    \coordinate [below=0.5cm of a1] (c1);
+    \coordinate [left=2cm of c1] (c2);
+    \coordinate [right=2cm of c1] (c3);
+    
+    \node [rect, below=0.5cm of c2] (a2) {AttributeDouble};
+    \node [rect, below=0.5cm of c3] (a3) {AttributeString};
+    
+    \path [line] (a1) -- (c1) -| (c2) -| (a2);
+    \path [line] (a1) -- (c1) -| (c3) -| (a3);
+    \end{tikzpicture}
+\end{center}
+
+\subsection*{Double}
+Liczba rzeczywista, wymiar, współrzędna, która może być relatywna.
+\begin{center}
+    \begin{tikzpicture}
+    \node [rect] (double) {Double};
+    \end{tikzpicture}
+\end{center}
+
+\subsection*{Point}
+Współrzędne punktu, para $(x,y)$ typu \texttt{Double}.
+\begin{center}
+    \begin{tikzpicture}
+    \node [rect] (point) {Point};
+    \end{tikzpicture}
+\end{center}
 
 \end{document}
