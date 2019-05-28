@@ -65,11 +65,11 @@ Figury proste i złożone.
     \node [rect, right=0.5cm of ellipse] (line) {Line};
     \node [rect, right=0.5cm of line] (rect) {Rectangle};
     
-    \path [line] (object) -- (c1) -- (ellipse);
-    \path [line] (object) -- (c1) -| (complex);
-    \path [line] (object) -- (c1) -| (circle);
-    \path [line] (object) -- (c1) -| (line);
-    \path [line] (object) -- (c1) -| (rect);
+    \path [line] (ellipse) -- (c1) -- (object);
+    \path [line] (complex) |- (c1) -- (object);
+    \path [line] (circle) |- (c1) -- (object);
+    \path [line] (line) |- (c1) -- (object);
+    \path [line] (rect) |- (c1) -- (object);
     \end{tikzpicture}
 \end{center}
 
@@ -85,9 +85,9 @@ Cechy figur prostych i złożonych.
     
     \node [rect, below=0.5cm of c2] (a2) {AttributeDouble};
     \node [rect, below=0.5cm of c3] (a3) {AttributeString};
-    
-    \path [line] (a1) -- (c1) -| (c2) -| (a2);
-    \path [line] (a1) -- (c1) -| (c3) -| (a3);
+     
+    \path [line] (a2) -- (c2) -- (c1) -- (a1);
+    \path [line] (a3) -- (c3) -- (c1) -- (a1);
     \end{tikzpicture}
 \end{center}
 
